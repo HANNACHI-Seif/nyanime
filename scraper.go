@@ -76,7 +76,8 @@ func (i *ScrapperInstance) Search(anime_name string) {
 
     output, err := cmd.Output()
     if err != nil {
-        log.Fatalf("Failed to execute fzf: %v", err)
+        fmt.Println("aborting")
+		os.Exit(0)
     }
 
     torrent_link := strings.TrimSpace(strings.Split(string(output), " |")[0])
